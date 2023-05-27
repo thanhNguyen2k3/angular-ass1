@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IProduct } from './interfaces/Product';
+import { ProductServiceService } from './services/product-service.service';
 
 @Component({
     selector: 'app-root',
@@ -7,11 +8,22 @@ import { IProduct } from './interfaces/Product';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    // products: IProduct[] = [
-    //     { id: 1, name: 'Sản phẩm A', price: 1000, img: 'https://picsum.photos/200/200' },
-    //     { id: 2, name: 'Sản phẩm B', price: 2000, img: 'https://picsum.photos/200/200' },
-    // ];
-    // onHandleRemove(id: number) {
-    //     this.products = this.products.filter((item) => item.id !== id);
-    // }
+    products: IProduct[] = [];
+
+    constructor(private productService: ProductServiceService) {
+        this.productService.getProducts().subscribe(
+            (data) => {
+                this.products = data;
+            },
+            (err) => {
+                console.log(err.message);
+            },
+        );
+    }
+
+    onHandleDelete(id: number | undefined) {
+        this.productService.deleteProduct(id).subscribe(() => {
+            this.products.filter((item) => item.id !== id);
+        });
+    }
 }

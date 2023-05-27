@@ -2,4 +2,30 @@
 
 <h1>Hello World</h1>
 
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let product of products; index as i">
+            <th>{{i + 1}}</th>
+            <th>{{product.title}}</th>
+            <th>{{product.description}}</th>
+            <th>{{product.price}}</th>
+            <th>
+                <a href="/update/{{product.id}}" class="btn btn-primary">Update</a>
+                <button (click)="onHandleDelete(product.id)" class="btn">Delete</button>
+            </th>
+        </tr>
+    </tbody>
+
+</table>
+
 <router-outlet />

@@ -1,16 +1,16 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "product 1 updated",
-            "img": "https://picsum.photos/200/200",
-            "price": 10000
-        },
-        {
-            "name": "product 3",
-            "img": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Vue_de_nuit_de_la_Place_Stanislas_%C3%A0_Nancy.jpg",
-            "price": 3000,
-            "id": 3
-        }
-    ]
+  "products": [
+    {
+      "id": 4,
+      "title": "test ",
+      "description": "test",
+      "price": 1000
+    },
+    {
+      "id": 5,
+      "title": "product 1",
+      "description": "description 1",
+      "price": 1000
+    }
+  ]
 }
